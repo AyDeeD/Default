@@ -1,0 +1,35 @@
+
+	"GameCardId":"Mulligan",
+	"ConfigComment":"These are the Mulligan rules.",
+
+	"Mulligan":
+	{
+		"values":
+		[
+			{
+				"comment": "Always hold Northshire Cleric (CS2_235), Shadow Ascendant (ICC_210), Radiant Elemental (UNG_034), Loot Hoarder (EX1_096), Power Word:Shield(CS2_004), Lightwell (EX1_341), Acolyte of Pain (EX1_007)",		 						  				
+				"mulligan": "CS2_235, ICC_210, UNG_034, EX1_096, CS2_004, EX1_341, EX1_007",
+				"condition": "*",
+				"value": "hold",
+			},
+            { 
+                "comment": "Hold Inner Fire (CS1_129), and Divine Spirit (CS2_236) if you have Lightwell (EX1_341).",
+                "mulligan": "CS1_129, CS2_236",
+                "condition": "my_hand(count(), cardid = EX1_341) > 0",
+                "value": "hold",
+            },
+            {
+                "comment": Tortollan Shellraiser (UNG_037) if you're against aggro classes.",
+                "mulligan": "UNG_037",
+                "condition": "opp_hero(count(), hero_class = hunter | paladin | rogue) > 0",
+                "value": "hold",
+            },			
+			{ 
+				"comment": "Discard all cards not listed as hold",
+				"mulligan": "*",
+				"condition": "*",
+				"value": "discard",
+			},
+		],
+	},
+}
